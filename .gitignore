@@ -1,0 +1,8 @@
+webapp/node_modules/
+webapp/dist/
+__pycache__/
+*.pyc
+.env
+india_next_report.html
+*.xlsx
+*.csv

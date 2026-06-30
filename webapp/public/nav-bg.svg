@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="64" viewBox="0 0 1440 64" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#fff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FFF8F3" stop-opacity="1"/>
+    </linearGradient>
+    <!-- orange circle blobs -->
+    <radialGradient id="blob1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FC8019" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#FC8019" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FC8019" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#FC8019" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- base -->
+  <rect width="1440" height="64" fill="url(#navGrad)"/>
+
+  <!-- decorative blobs -->
+  <ellipse cx="1200" cy="32" rx="180" ry="60" fill="url(#blob1)"/>
+  <ellipse cx="900"  cy="0"  rx="120" ry="40" fill="url(#blob2)"/>
+  <ellipse cx="300"  cy="64" rx="150" ry="50" fill="url(#blob2)"/>
+
+  <!-- food icons scattered right side — subtle -->
+  <text x="920"  y="24" font-size="18" opacity="0.07" font-family="serif">🍕</text>
+  <text x="970"  y="50" font-size="14" opacity="0.07" font-family="serif">🍔</text>
+  <text x="1030" y="22" font-size="16" opacity="0.07" font-family="serif">🍜</text>
+  <text x="1090" y="48" font-size="14" opacity="0.07" font-family="serif">🌮</text>
+  <text x="1140" y="20" font-size="18" opacity="0.07" font-family="serif">🍣</text>
+  <text x="1200" y="50" font-size="14" opacity="0.07" font-family="serif">🍛</text>
+  <text x="1260" y="22" font-size="16" opacity="0.07" font-family="serif">🧆</text>
+  <text x="1310" y="50" font-size="14" opacity="0.07" font-family="serif">🍱</text>
+  <text x="1360" y="20" font-size="18" opacity="0.07" font-family="serif">🥗</text>
+
+  <!-- orange bottom accent line is done via CSS border-bottom, not here -->
+</svg>

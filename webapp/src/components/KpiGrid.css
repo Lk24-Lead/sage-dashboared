@@ -1,0 +1,81 @@
+/* ── KPI Grid ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 12px;
+}
+
+.kpi-section-label {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  padding: 4px 0 6px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+.kpi-section-label:first-child { margin-top: 0; }
+
+/* ── Card ── */
+.kpi-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px 16px 14px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent, var(--or));
+  box-shadow: var(--shadow);
+  transition: box-shadow .15s, transform .15s;
+  cursor: default;
+}
+.kpi-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* ── Head ── */
+.kpi-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.kpi-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.kpi-pill-pos { background: var(--green-bg); color: var(--green-t); }
+.kpi-pill-neg { background: var(--red-bg);   color: var(--red-t);   }
+.kpi-pill-neu { background: var(--bg);       color: var(--text-disabled); }
+
+/* ── Value ── */
+.kpi-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -.3px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-lw {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-disabled);
+  margin-top: 5px;
+  font-variant-numeric: tabular-nums;
+}

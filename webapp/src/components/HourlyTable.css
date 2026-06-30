@@ -1,0 +1,194 @@
+/* ══════════════════════════════════════
+   HourlyTable  —  Blue-grey professional
+   ══════════════════════════════════════ */
+
+.tbl-card {
+  background: #FFFFFF;
+  border-radius: var(--radius);
+  border: 1px solid #DDE3ED;
+  box-shadow: 0 2px 12px rgba(30,50,100,.08);
+  overflow: hidden;
+}
+
+.tbl-scroll { overflow-x: auto; }
+
+.tbl-card table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  white-space: nowrap;
+  font-size: 12px;
+  font-family: var(--font);
+}
+
+/* ── Header ── */
+.thead-groups th {
+  padding: 10px 10px 8px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #E8EEF7 !important;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  background: #2C3E6B !important;
+  border-bottom: 1px solid #3D5080 !important;
+  border-right: 1px solid #3D5080 !important;
+  min-width: 52px;
+}
+
+.th-metric {
+  position: sticky; left: 0; z-index: 4;
+  width: 100px; min-width: 100px; max-width: 100px;
+  background: #1E2E55 !important;
+  text-align: left !important;
+  color: #FFFFFF !important;
+  font-size: 11px !important; font-weight: 700 !important;
+  border-right: 1px solid #4A6090 !important;
+  border-bottom: 1px solid #3D5080 !important;
+  padding-left: 14px !important;
+}
+
+.th-sub {
+  position: sticky; left: 100px; z-index: 4;
+  width: 40px; min-width: 40px; max-width: 40px;
+  background: #1E2E55 !important;
+  border-right: 1px solid #4A6090 !important;
+  border-bottom: 1px solid #3D5080 !important;
+}
+
+.th-overall {
+  position: sticky; left: 140px; z-index: 4;
+  width: 76px; min-width: 76px; max-width: 76px;
+  background: #253560 !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  border-bottom: 1px solid #3D5080 !important;
+  border-right: 1px solid #4A6090 !important;
+}
+
+/* ── Min width for hour columns ── */
+.tbl-card thead th { min-width: 52px; }
+
+/* ── Body ── */
+.tbl-card tbody tr {
+  border-bottom: 1px solid #EEF1F6;
+  transition: background .08s;
+}
+.tbl-card tbody tr:hover .sticky-metric,
+.tbl-card tbody tr:hover .sticky-sub,
+.tbl-card tbody tr:hover td { background: #F0F4FF !important; }
+
+.tbl-card tbody td {
+  padding: 6px 8px;
+  text-align: right;
+  border-right: 1px solid #EEF1F6;
+  color: #2D3748;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+/* ── Sticky metric label ── */
+.sticky-metric {
+  position: sticky; left: 0; z-index: 2;
+  width: 100px; min-width: 100px; max-width: 100px;
+  background: #F5F7FC !important;
+  border-right: 1px solid #C8D0E0 !important;
+  text-align: left !important;
+  font-weight: 700;
+  font-size: 12px;
+  padding-left: 14px !important;
+  color: #1E2E55;
+  vertical-align: middle;
+}
+
+/* ── Sticky sub label (TW / LW / Δ) ── */
+.sticky-sub {
+  position: sticky; left: 100px; z-index: 2;
+  width: 40px; min-width: 40px; max-width: 40px;
+  background: #FFFFFF;
+  border-right: 1px solid #C8D0E0 !important;
+  text-align: center !important;
+  font-size: 10px;
+  font-weight: 700;
+  color: #8A96B0;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+/* ── TW row ── */
+.row-tw td { background: #FFFFFF; }
+.row-tw .sticky-metric { background: #F5F7FC !important; }
+.row-tw .sticky-sub    { background: #FFFFFF; }
+
+/* ── LW row ── */
+.row-lw td { background: #F9FAFD; }
+.row-lw .sticky-metric { background: #F5F7FC !important; }
+.row-lw .sticky-sub    { background: #F9FAFD; color: #A0AABF !important; }
+.row-lw-cell { color: #8A96B0 !important; font-size: 11px !important; }
+
+/* ── Delta row ── */
+.row-delta td { background: #FFFFFF; }
+.row-delta .sticky-metric { background: #F5F7FC !important; }
+.row-delta .sticky-sub    { background: #FFFFFF; color: #C0C8D8 !important; }
+
+/* Spacer row between metric groups */
+.row-spacer td {
+  height: 8px;
+  background: #F2F2F2 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.row-spacer .spacer-metric {
+  position: sticky; left: 0; z-index: 2;
+  width: 100px; min-width: 100px; max-width: 100px;
+}
+.row-spacer .spacer-sub {
+  position: sticky; left: 100px; z-index: 2;
+  width: 40px; min-width: 40px; max-width: 40px;
+}
+.row-spacer .spacer-overall {
+  position: sticky; left: 140px; z-index: 2;
+  width: 76px; min-width: 76px; max-width: 76px;
+}
+
+/* ── Overall column ── */
+.td-overall {
+  position: sticky; left: 140px; z-index: 2;
+  font-weight: 700 !important;
+  background: #EEF2FA !important;
+  color: #1E2E55 !important;
+  width: 76px; min-width: 76px; max-width: 76px;
+  border-right: 1px solid #C8D0E0 !important;
+}
+
+/* ── Column dividers ── */
+.sep { border-left: 1px solid #C8D0E0 !important; }
+
+/* ── Change cells ── */
+.chg { font-weight: 700; font-size: 11px; }
+.chg.pos { color: #1A7A3C; }
+.chg.neg { color: #C0392B; }
+.chg.neu { color: #A0AABF; font-weight: 400; }
+.chg.na  { color: #C8D0E0; font-weight: 400; }
+.na      { color: #C8D0E0; }
+
+/* ── Partial tag ── */
+.partial-tag {
+  display: inline-block; margin-left: 2px;
+  font-size: 9px; color: #D4A017;
+  font-weight: 700; vertical-align: middle;
+}
+
+/* ── Legend ── */
+.tbl-legend {
+  display: flex; flex-wrap: wrap;
+  gap: 4px 18px;
+  padding: 10px 16px;
+  border-top: 1px solid #DDE3ED;
+  background: #F5F7FC;
+  font-size: 11px;
+  color: #8A96B0;
+  font-weight: 500;
+}
+.tbl-legend b { color: #2C3E6B; font-weight: 700; }

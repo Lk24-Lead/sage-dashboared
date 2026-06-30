@@ -1,0 +1,346 @@
+/* ══════════════════════════════════════
+   Landing Page — Swiggy.com style
+   ══════════════════════════════════════ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.landing {
+  min-height: 100vh;
+  background: #FF5200;
+  font-family: var(--font, 'Inter', sans-serif);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Navbar ── */
+.landing-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background: #FF5200;
+  box-shadow: none;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #fff;
+  padding: 2px;
+}
+
+.nav-logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.3px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-btn-outline {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,.7);
+  border-radius: 8px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s;
+}
+.nav-btn-outline:hover { background: rgba(255,255,255,.15); }
+
+.nav-btn-solid {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity .15s;
+}
+.nav-btn-solid:hover { opacity: .85; }
+
+/* ── Hero section ── */
+.landing-hero {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 48px 80px;
+  overflow: hidden;
+}
+
+/* Burger background — blended into left side */
+.hero-food-bg {
+  position: absolute;
+  left: 30px;
+  top: 80px;
+  width: 380px;
+  height: 50vh;
+  background: url('/food-burger.png') center center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 60%, rgba(0,0,0,.4) 85%, transparent 100%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 60%, rgba(0,0,0,.4) 85%, transparent 100%);
+  border-radius: 24px;
+  mix-blend-mode: luminosity;
+  opacity: .55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Toing background image — blended into right side */
+.hero-toing-bg {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  width: 490px;
+  height: 180%;
+  background: url('/toing-banner.png') right top / contain no-repeat;
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 60%, rgba(0,0,0,.4) 85%, transparent 100%);
+  mask-image: linear-gradient(to left, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 60%, rgba(0,0,0,.4) 85%, transparent 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  mix-blend-mode: luminosity;
+  opacity: .55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Side food photos */
+.hero-side {
+  position: absolute;
+  top: 0;
+  height: 55%;
+  width: 220px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0 0 16px 16px;
+  opacity: .92;
+}
+.hero-side-left  { left: 0; }
+.hero-side-right { right: 0; }
+
+/* ── Headline ── */
+.hero-headline {
+  position: relative;
+  z-index: 2;
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: -.5px;
+  margin-bottom: 48px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.15);
+  max-width: 700px;
+}
+
+/* ── Cards + side image wrapper ── */
+.landing-cards-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.toing-side-img {
+  height: 320px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ── Cards row ── */
+.landing-cards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Individual card ── */
+.lc {
+  position: relative;
+  width: 300px;
+  height: 210px;
+  background: #ffffff !important;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 24px 22px;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  font-family: inherit;
+  box-shadow: 0 4px 24px rgba(0,0,0,.12);
+  transition: transform .2s, box-shadow .2s;
+}
+.lc:not(.lc-disabled):hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.18);
+}
+.lc.lc-disabled {
+  cursor: default;
+  opacity: .88;
+  background: #FFF0E4 !important;
+}
+
+/* Text block */
+.lc-text {
+  position: absolute;
+  top: 30px;
+  left: 24px;
+  z-index: 2;
+  max-width: 65%;
+}
+
+.lc-name {
+  font-size: 18px;
+  font-weight: 900;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: -.2px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.lc-tagline {
+  font-size: 10px;
+  font-weight: 700;
+  color: #686b78;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+
+/* Offer pill */
+.lc-offer {
+  display: inline-block;
+  background: rgba(252,128,25,.1);
+  border: 1px solid rgba(252,128,25,.35);
+  color: #FF5200;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+/* Food image — bottom-right circle */
+.lc-food-img {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  background: #fff;
+}
+
+/* Mascot (Toing) — full figure, no crop */
+.lc-mascot-img {
+  object-fit: contain;
+  object-position: center bottom;
+  border-radius: 0;
+  background: #FFF0E4;
+  bottom: 0;
+  right: -4px;
+  width: 135px;
+  height: 135px;
+}
+
+/* Arrow circle — bottom-left */
+.lc-arrow {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #FF5200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(252,128,25,.45);
+  transition: transform .15s;
+}
+.lc:not(.lc-disabled):hover .lc-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Footer ── */
+.landing-footer {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  gap: 16px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.footer-brand {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.footer-mid {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #686b78;
+}
+
+.footer-right {
+  font-size: 12px;
+  font-weight: 500;
+  color: #93959f;
+}

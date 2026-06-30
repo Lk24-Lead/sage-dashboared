@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* ── Gilroy font-face (Swiggy's own font) ── */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/Gilroy-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/Gilroy-Medium.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/Gilroy-Bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/Gilroy-ExtraBold.woff2') format('woff2');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Swiggy design tokens ── */
+:root {
+  /* Brand */
+  --or:        #FC8019;
+  --or2:       #E8701A;
+  --or-pale:   #FFF3E8;
+  --or-mid:    #FFE0C2;
+
+  /* Text */
+  --text-primary:   #3D4152;
+  --text-secondary: #686B78;
+  --text-disabled:  #93959F;
+  --text-on-dark:   #FFFFFF;
+
+  /* Surface */
+  --bg:        #F2F2F2;
+  --surface:   #FFFFFF;
+  --surface-2: #F8F8F8;
+  --border:    #E9ECEE;
+  --border2:   #D4D5D9;
+  --divider:   #F2F2F2;
+
+  /* Status */
+  --green:     #60B246;
+  --green-bg:  #EAF6E4;
+  --green-t:   #3D7A2B;
+  --red:       #D83B01;
+  --red-bg:    #FFF0EC;
+  --red-t:     #B52D00;
+  --amber:     #D4A017;
+
+  /* Font */
+  --font: 'Proxima Nova', 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Shape */
+  --radius:    12px;
+  --radius-sm: 8px;
+  --shadow:    0 1px 4px rgba(40,44,63,.08);
+  --shadow-md: 0 4px 16px rgba(40,44,63,.12);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { height: 5px; width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-disabled); }
