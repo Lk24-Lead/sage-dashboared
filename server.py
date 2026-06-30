@@ -42,12 +42,14 @@ HERE  = Path(__file__).resolve().parent
 # Webapp: local dev uses webapp/dist, deployed build uses ./dist
 WEBAPP = (HERE / "webapp" / "dist") if (HERE / "webapp" / "dist").exists() else (HERE / "dist")
 
-# Databricks config from env vars (set in Render dashboard)
+# Databricks config — auto-detected when running as a Databricks App
+# Falls back to env vars for local dev
 DBR_HOST         = os.environ.get("DATABRICKS_HOST", "https://swiggy-analytics-mumbai.cloud.databricks.com")
 DBR_TOKEN        = os.environ.get("DATABRICKS_TOKEN", "")
 DBR_WAREHOUSE_ID = os.environ.get("DATABRICKS_WAREHOUSE_ID", "c5b794bff6539d09")
 
 def get_client() -> WorkspaceClient:
+    # Inside a Databricks App: DATABRICKS_HOST + DATABRICKS_TOKEN are injected automatically
     if DBR_TOKEN:
         return WorkspaceClient(host=DBR_HOST, token=DBR_TOKEN)
     # Local dev: uses cached OAuth from ~/.databrickscfg
